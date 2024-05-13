@@ -1,0 +1,74 @@
+﻿
+@{
+    ViewBag.Title = "loginsv";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="blu" >Trang sinh viên</h1>
+<hr  />
+<br />
+<style>
+    
+    .blu{
+        color:darkblue;
+    }
+    .center{
+        margin-left:36%;
+    }
+    .login-container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+        .login-container h2 {
+            text-align: center;
+        }
+
+    .input-group {
+        margin-bottom: 15px;
+        margin-left:30%;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    input {
+        width: 30%;
+        padding: 8px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    button {
+        width: 15%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+</style>
+    <h3>Xin mời đăng nhập sinh viên</h3>
+    <form action="@Url.Action("loginsv","Sinhvien")" method="post">
+        <div class="input-group">
+            <label for="username">Mã sinh viên:</label>
+            <input type="text" id="MaSV" name="MaSV" required>
+        </div>
+        <div class="input-group">
+            <label for="password">Mật khẩu:</label>
+            <input type="password" id="MatKhau" name="MatKhau" required>
+        </div>
+        <div class="center">
+            <button type="submit">Đăng nhập</button>
+        </div>
+    </form>
