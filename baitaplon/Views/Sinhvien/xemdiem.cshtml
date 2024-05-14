@@ -1,0 +1,45 @@
+﻿@model IEnumerable<baitaplon.Models.diemthi>
+
+@{
+    ViewBag.Title = "Xem Điểm";
+}
+<style>
+    table {
+        border-collapse: collapse;
+        border: 1px solid black;
+    }
+
+        table th {
+            width:200px;
+            border: 1px solid black;
+            padding: 5px;
+            text-align:center;
+        }
+
+        table td {
+            border: 1px solid black;
+            padding: 5px;
+        }
+</style>
+<div class="table-container">
+    <h2>Điểm thi của @ViewBag.name  </h2>
+    <table >
+        <thead>
+            <tr>
+                <th>Mã Môn Học</th>
+                <th>Tên Môn Học</th>
+                <th>Điểm Thi</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.MaMH</td>
+                    <td>@item.monhoc.TenMH</td>
+                    <td>@item.DiemThi1</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

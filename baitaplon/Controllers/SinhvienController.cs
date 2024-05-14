@@ -85,6 +85,13 @@ namespace baitaplon.Controllers
             Session.Clear();
             return RedirectToAction("loginsv");
         }
-       
+        public ActionResult xemdiem(int? MaSV)
+        {
+            var ma = MaSV;
+            var name = db.sinhvien.Find(ma).TenSV.ToString();
+            ViewBag.name = name;
+            var diemthiList = db.diemthi.Where(d => d.MaSV == MaSV).ToList();
+            return View(diemthiList);
+        }
     }
 }
