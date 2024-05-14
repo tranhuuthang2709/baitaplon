@@ -44,39 +44,47 @@ namespace baitaplon.Controllers
             ViewBag.name = name;
             return View();
         }
-
         [HttpGet]
-        public ActionResult thongtin(int? MaSV)
+        public ActionResult xemthongtin(int? MaSV)
         {
+            ViewBag.MaSV = Session["masv"];
+            var sinhvien = db.sinhvien.Find(MaSV);
+            return View(sinhvien);
+        }
+        [HttpGet]
+        public ActionResult suathongtin(int? MaSV)
+        {
+            ViewBag.MaSV = Session["masv"];
             var sinhvien = db.sinhvien.Find(MaSV);
             return View(sinhvien);
         }
         [HttpPost]
-        public ActionResult thongtin(sinhvien sinhvien)
+        public ActionResult suathongtin(sinhvien model)
         {
-            var update = db.sinhvien.Find(sinhvien.MaSV);
+            var update = db.sinhvien.Find(model.MaSV);
 
-            update.TenSV = sinhvien.TenSV;
-            update.MatKhau = sinhvien.MatKhau;
-            update.GioiTinh = sinhvien.GioiTinh;
-            update.SDT = sinhvien.SDT;
-            update.NgaySinh = sinhvien.NgaySinh;
-            update.MaLop = sinhvien.MaLop;
+                update.TenSV = model.TenSV;
+            update.MatKhau = model.MatKhau;
+            update.GioiTinh = model.GioiTinh;
+            update.SDT = model.SDT;
+            update.NgaySinh = model.NgaySinh;
+            update.MaLop = model.MaLop;
 
             var masv = db.SaveChanges();
             if (masv > 0)
             {
-                return ActionResult("thongtin");
+                return RedirectToAction("loginsv");
             }
             else
             {
-                return View(sinhvien);
+                return View(model);
             }
         }
-
-        private ActionResult ActionResult(string v)
+        public ActionResult logout()
         {
-            throw new NotImplementedException();
+            Session.Clear();
+            return RedirectToAction("loginsv");
         }
+       
     }
 }

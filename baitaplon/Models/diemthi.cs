@@ -16,7 +16,7 @@ namespace baitaplon.Models
     {
         public int MaSV { get; set; }
         public int MaMH { get; set; }
-        public Nullable<double> DiemThi1 { get; set; }
+        public double DiemThi1 { get; set; }
     
         public virtual monhoc monhoc { get; set; }
         public virtual sinhvien sinhvien { get; set; }

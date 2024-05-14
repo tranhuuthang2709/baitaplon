@@ -18,7 +18,7 @@ namespace baitaplon.Models
         public string TenGV { get; set; }
         public string MatKhau { get; set; }
         public string GioiTinh { get; set; }
-        public Nullable<System.DateTime> NgaySinh { get; set; }
+        public System.DateTime NgaySinh { get; set; }
         public string SDT { get; set; }
         public Nullable<int> MaKhoa { get; set; }
     

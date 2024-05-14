@@ -1,0 +1,74 @@
+﻿@model baitaplon.Models.sinhvien
+
+@{
+    ViewBag.Title = "xemthongtin";
+    Layout = "~/Views/Shared/_Layoutsv.cshtml";
+}
+
+<h2>xemthongtin</h2>
+
+<div>
+    <h4>sinhvien</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <label>Mã sinh viên</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaSV)
+        </dd>
+        <dt>
+            <label>Tên sinh viên</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenSV)
+        </dd>
+
+        <dt>
+            <label>Mật khẩu</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MatKhau)
+        </dd>
+
+        <dt>
+            <label>Giới tính</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GioiTinh)
+        </dd>
+
+        <dt>
+            <label>Số điện thoại</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDT)
+        </dd>
+
+        <dt>
+            <label>Ngày sinh</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgaySinh)
+        </dd>
+
+        <dt>
+            <label>Tên lớp</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lop.TenLop)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a href="/Sinhvien/suathongtin?MaSV=@ViewBag.MaSV">Sửa thông tin</a>
+    @Html.ActionLink("Back to List", "trangchu")
+</p>

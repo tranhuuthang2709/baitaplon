@@ -32,6 +32,5 @@ namespace baitaplon.Models
         public virtual DbSet<monhoc> monhoc { get; set; }
         public virtual DbSet<nganh> nganh { get; set; }
         public virtual DbSet<sinhvien> sinhvien { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }
