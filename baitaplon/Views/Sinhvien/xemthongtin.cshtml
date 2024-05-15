@@ -5,10 +5,10 @@
     Layout = "~/Views/Shared/_Layoutsv.cshtml";
 }
 
-<h2>xemthongtin</h2>
+<h2>Thông tin cá nhân</h2>
 
 <div>
-    <h4>sinhvien</h4>
+    <h4>sinh viên</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -65,10 +65,12 @@
         <dd>
             @Html.DisplayFor(model => model.lop.TenLop)
         </dd>
-
+       
     </dl>
 </div>
 <p>
-    <a href="/Sinhvien/suathongtin?MaSV=@ViewBag.MaSV">Sửa thông tin</a>
-    @Html.ActionLink("Back to List", "trangchu")
+    <a href="/Sinhvien/suathongtin?MaSV=@ViewBag.MaGV">Sửa thông tin</a>
+
+    <a href="/Sinhvien/trangchu?MaSV=@ViewBag.MaGV">Quay lại</a>
+    
 </p>

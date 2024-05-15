@@ -1,0 +1,68 @@
+﻿@model baitaplon.Models.giangvien
+
+@{
+    ViewBag.Title = "xemthongtin";
+    Layout = "~/Views/Shared/_Layoutgv.cshtml";
+}
+
+<h2>xem thông tin</h2>
+
+<div>
+    <h4>Giảng viên</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <label>tên giảng viên</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenGV)
+        </dd>
+
+        <dt>
+            <label>mật khẩu</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MatKhau)
+        </dd>
+
+        <dt>
+            <label>Giới tính</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GioiTinh)
+        </dd>
+
+        <dt>
+            <label>Ngày sinh</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgaySinh)
+        </dd>
+
+        <dt>
+            <label>Số điện thoại</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDT)
+        </dd>
+
+        <dt>
+            <label>Tên khoa</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.khoa.TenKhoa)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a href="/Giangvien/suathongtin?MaGV=@ViewBag.MaGV">Sửa thông tin</a>
+
+    <a href="/Giangvien/trangchu?MaGV=@ViewBag.MaGV">Quay lại</a>
+</p>
