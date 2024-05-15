@@ -242,7 +242,11 @@
     <Content Include="Views\Sinhvien\trangchu.cshtml" />
     <Content Include="Views\Sinhvien\suathongtin.cshtml" />
     <Content Include="Views\Sinhvien\xemthongtin.cshtml" />
-    <Content Include="Views\Sinhvien\xemdiem.cshtml" />
+    <Content Include="Views\Giangvien\logingv.cshtml" />
+    <Content Include="Views\Giangvien\trangchu.cshtml" />
+    <Content Include="Views\Shared\_Layoutgv.cshtml" />
+    <Content Include="Views\Giangvien\xemthongtin.cshtml" />
+    <Content Include="Views\Giangvien\suathongtin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
