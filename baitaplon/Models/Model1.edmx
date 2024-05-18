@@ -7,12 +7,12 @@
       <Schema Namespace="QLSVModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="diemthi">
           <Key>
-            <PropertyRef Name="MaSV" />
             <PropertyRef Name="MaMH" />
           </Key>
-          <Property Name="MaSV" Type="int" Nullable="false" />
           <Property Name="MaMH" Type="int" Nullable="false" />
           <Property Name="DiemThi" Type="float" Nullable="false" />
+          <Property Name="Monhoc" Type="nvarchar" MaxLength="50" />
+          <Property Name="MaSV" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="giangvien">
           <Key>
@@ -41,13 +41,6 @@
           <Property Name="TenLop" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="MaNganh" Type="int" />
         </EntityType>
-        <EntityType Name="monhoc">
-          <Key>
-            <PropertyRef Name="MaMH" />
-          </Key>
-          <Property Name="MaMH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TenMH" Type="nvarchar" MaxLength="50" Nullable="false" />
-        </EntityType>
         <EntityType Name="nganh">
           <Key>
             <PropertyRef Name="Manganh" />
@@ -68,18 +61,6 @@
           <Property Name="NgaySinh" Type="date" Nullable="false" />
           <Property Name="MaLop" Type="int" />
         </EntityType>
-        <Association Name="FK_DiemThi_MonHoc">
-          <End Role="monhoc" Type="Self.monhoc" Multiplicity="1" />
-          <End Role="diemthi" Type="Self.diemthi" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="monhoc">
-              <PropertyRef Name="MaMH" />
-            </Principal>
-            <Dependent Role="diemthi">
-              <PropertyRef Name="MaMH" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_DiemThi_SinhVien">
           <End Role="sinhvien" Type="Self.sinhvien" Multiplicity="1" />
           <End Role="diemthi" Type="Self.diemthi" Multiplicity="*" />
@@ -145,13 +126,8 @@
           <EntitySet Name="giangvien" EntityType="Self.giangvien" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="khoa" EntityType="Self.khoa" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="lop" EntityType="Self.lop" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="monhoc" EntityType="Self.monhoc" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="nganh" EntityType="Self.nganh" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sinhvien" EntityType="Self.sinhvien" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_DiemThi_MonHoc" Association="Self.FK_DiemThi_MonHoc">
-            <End Role="monhoc" EntitySet="monhoc" />
-            <End Role="diemthi" EntitySet="diemthi" />
-          </AssociationSet>
           <AssociationSet Name="FK_DiemThi_SinhVien" Association="Self.FK_DiemThi_SinhVien">
             <End Role="sinhvien" EntitySet="sinhvien" />
             <End Role="diemthi" EntitySet="diemthi" />
@@ -180,13 +156,12 @@
       <Schema Namespace="QLSVModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="diemthi">
           <Key>
-            <PropertyRef Name="MaSV" />
             <PropertyRef Name="MaMH" />
           </Key>
-          <Property Name="MaSV" Type="Int32" Nullable="false" />
           <Property Name="MaMH" Type="Int32" Nullable="false" />
           <Property Name="DiemThi1" Type="Double" Nullable="false" />
-          <NavigationProperty Name="monhoc" Relationship="Self.FK_DiemThi_MonHoc" FromRole="diemthi" ToRole="monhoc" />
+          <Property Name="Monhoc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MaSV" Type="Int32" Nullable="false" />
           <NavigationProperty Name="sinhvien" Relationship="Self.FK_DiemThi_SinhVien" FromRole="diemthi" ToRole="sinhvien" />
         </EntityType>
         <EntityType Name="giangvien">
@@ -221,14 +196,6 @@
           <NavigationProperty Name="nganh" Relationship="Self.FK_lop_nganh" FromRole="lop" ToRole="nganh" />
           <NavigationProperty Name="sinhvien" Relationship="Self.FK_SinhVien_Lop" FromRole="lop" ToRole="sinhvien" />
         </EntityType>
-        <EntityType Name="monhoc">
-          <Key>
-            <PropertyRef Name="MaMH" />
-          </Key>
-          <Property Name="MaMH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TenMH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="diemthi" Relationship="Self.FK_DiemThi_MonHoc" FromRole="monhoc" ToRole="diemthi" />
-        </EntityType>
         <EntityType Name="nganh">
           <Key>
             <PropertyRef Name="Manganh" />
@@ -253,18 +220,6 @@
           <NavigationProperty Name="diemthi" Relationship="Self.FK_DiemThi_SinhVien" FromRole="sinhvien" ToRole="diemthi" />
           <NavigationProperty Name="lop" Relationship="Self.FK_SinhVien_Lop" FromRole="sinhvien" ToRole="lop" />
         </EntityType>
-        <Association Name="FK_DiemThi_MonHoc">
-          <End Role="monhoc" Type="Self.monhoc" Multiplicity="1" />
-          <End Role="diemthi" Type="Self.diemthi" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="monhoc">
-              <PropertyRef Name="MaMH" />
-            </Principal>
-            <Dependent Role="diemthi">
-              <PropertyRef Name="MaMH" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_DiemThi_SinhVien">
           <End Role="sinhvien" Type="Self.sinhvien" Multiplicity="1" />
           <End Role="diemthi" Type="Self.diemthi" Multiplicity="*" />
@@ -330,13 +285,8 @@
           <EntitySet Name="giangvien" EntityType="Self.giangvien" />
           <EntitySet Name="khoa" EntityType="Self.khoa" />
           <EntitySet Name="lop" EntityType="Self.lop" />
-          <EntitySet Name="monhoc" EntityType="Self.monhoc" />
           <EntitySet Name="nganh" EntityType="Self.nganh" />
           <EntitySet Name="sinhvien" EntityType="Self.sinhvien" />
-          <AssociationSet Name="FK_DiemThi_MonHoc" Association="Self.FK_DiemThi_MonHoc">
-            <End Role="monhoc" EntitySet="monhoc" />
-            <End Role="diemthi" EntitySet="diemthi" />
-          </AssociationSet>
           <AssociationSet Name="FK_DiemThi_SinhVien" Association="Self.FK_DiemThi_SinhVien">
             <End Role="sinhvien" EntitySet="sinhvien" />
             <End Role="diemthi" EntitySet="diemthi" />
@@ -367,9 +317,10 @@
           <EntitySetMapping Name="diemthi">
             <EntityTypeMapping TypeName="QLSVModel.diemthi">
               <MappingFragment StoreEntitySet="diemthi">
-                <ScalarProperty Name="MaSV" ColumnName="MaSV" />
                 <ScalarProperty Name="MaMH" ColumnName="MaMH" />
                 <ScalarProperty Name="DiemThi1" ColumnName="DiemThi" />
+                <ScalarProperty Name="Monhoc" ColumnName="Monhoc" />
+                <ScalarProperty Name="MaSV" ColumnName="MaSV" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -400,14 +351,6 @@
                 <ScalarProperty Name="MaLop" ColumnName="MaLop" />
                 <ScalarProperty Name="TenLop" ColumnName="TenLop" />
                 <ScalarProperty Name="MaNganh" ColumnName="MaNganh" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="monhoc">
-            <EntityTypeMapping TypeName="QLSVModel.monhoc">
-              <MappingFragment StoreEntitySet="monhoc">
-                <ScalarProperty Name="MaMH" ColumnName="MaMH" />
-                <ScalarProperty Name="TenMH" ColumnName="TenMH" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

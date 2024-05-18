@@ -29,7 +29,6 @@ namespace baitaplon.Models
         public virtual DbSet<giangvien> giangvien { get; set; }
         public virtual DbSet<khoa> khoa { get; set; }
         public virtual DbSet<lop> lop { get; set; }
-        public virtual DbSet<monhoc> monhoc { get; set; }
         public virtual DbSet<nganh> nganh { get; set; }
         public virtual DbSet<sinhvien> sinhvien { get; set; }
     }

@@ -161,9 +161,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\monhoc.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\nganh.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -247,6 +244,9 @@
     <Content Include="Views\Shared\_Layoutgv.cshtml" />
     <Content Include="Views\Giangvien\xemthongtin.cshtml" />
     <Content Include="Views\Giangvien\suathongtin.cshtml" />
+    <Content Include="Views\Giangvien\suadiemsv.cshtml" />
+    <Content Include="Views\Giangvien\listDiem.cshtml" />
+    <Content Include="Views\Giangvien\EditDiem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
