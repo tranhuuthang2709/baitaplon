@@ -247,6 +247,7 @@
     <Content Include="Views\Giangvien\suadiemsv.cshtml" />
     <Content Include="Views\Giangvien\listDiem.cshtml" />
     <Content Include="Views\Giangvien\EditDiem.cshtml" />
+    <Content Include="Views\Sinhvien\xemdiem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

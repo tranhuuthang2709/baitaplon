@@ -5,7 +5,20 @@
         Layout = "~/Views/Shared/_Layoutgv.cshtml";
     }
     <h2>Bảng điểm sinh viên</h2>
+<style>
+    body {
+        color: #111111;
+    }
+    table, td, th {
+        border: 1px solid;
+    }
 
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+</style>
     @using (Html.BeginForm("EditDiem", "Giangvien", FormMethod.Post))
     {
         <table style="width:100%">

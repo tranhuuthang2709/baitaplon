@@ -87,11 +87,18 @@ namespace baitaplon.Controllers
         }
         public ActionResult xemdiem(int? MaSV)
         {
-            var ma = MaSV;
-            var name = db.sinhvien.Find(ma).TenSV.ToString();
-            ViewBag.name = name;
-            var diemthiList = db.diemthi.Where(d => d.MaSV == MaSV).ToList();
-            return View(diemthiList);
+            var sinhvien = db.sinhvien.Find(MaSV);
+            if (sinhvien == null)
+            {
+                return HttpNotFound();
+            }
+
+            var diemthi = db.diemthi.Where(d => d.MaSV == MaSV).ToList();
+            ViewBag.SinhVien = sinhvien;  
+            return View(sinhvien);
         }
+
+
+
     }
 }

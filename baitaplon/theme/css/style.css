@@ -1,9 +1,9 @@
 ﻿body {
-  text-align: center;
-  margin-top:10px;
-  margin-bottom:10px;
-  color:#666666;
-  background-color: #E0E0E0;
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	color: #111111;
+	background-color: #E0E0E0;
 }
 
 A:link {
@@ -286,6 +286,13 @@ A:hover {
 	margin-right: 0; /* Loại bỏ margin bên phải của phần tử cuối cùng */
 	width: calc(33.33% - 0px); /* Điều chỉnh kích thước của phần tử cuối cùng */
 }
-.form-control-rong {
-	width: 100%; /* Điều chỉnh độ rộng theo phần trăm */
+
+
+table, td, th {
+	border: 1px solid;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
 }
