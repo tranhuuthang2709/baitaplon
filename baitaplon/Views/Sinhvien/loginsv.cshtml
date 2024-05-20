@@ -8,9 +8,11 @@
 <hr  />
 <br />
 <style>
-    
-    .blu{
-        color:darkblue;
+    .text-danger{
+        color:red;
+    }
+    .blu {
+        color: darkblue;
     }
     .center{
         margin-left:36%;
@@ -67,6 +69,9 @@
         <div class="input-group">
             <label for="password">Mật khẩu:</label>
             <input type="password" id="MatKhau" name="MatKhau" required>
+        </div>
+        <div class="input-group">
+            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
         </div>
         <div class="center">
             <button type="submit">Đăng nhập</button>

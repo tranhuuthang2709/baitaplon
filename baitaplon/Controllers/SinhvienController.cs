@@ -19,21 +19,27 @@ namespace baitaplon.Controllers
         [HttpPost]
         public ActionResult loginsv(int MaSV,string MatKhau )
         {
-            var masv = MaSV;
-            var mk = MatKhau;
-            var acc = db.sinhvien.SingleOrDefault(x => x.MaSV == masv && x.MatKhau == mk);
-            if (acc != null)
+            if (ModelState.IsValid)
             {
-                Session["user"] = acc;
+                var masv = MaSV;
+                var mk = MatKhau;
+                var acc = db.sinhvien.SingleOrDefault(x => x.MaSV == masv && x.MatKhau == mk);
+                if (acc != null)
+                {
+                    Session["user"] = acc;
 
-                Session["masv"] = acc.MaSV;
-                Session["name"] = acc.TenSV.ToString();
-                return RedirectToAction("trangchu", "sinhvien"); 
+                    Session["masv"] = acc.MaSV;
+                    Session["name"] = acc.TenSV.ToString();
+                    return RedirectToAction("trangchu", "sinhvien");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Thông tin đăng nhập không đúng.");
+                    return View();
+                }
             }
-            else
-            {
                 return View();
-            }
+            
         }
 
         public ActionResult trangchu()
@@ -61,24 +67,28 @@ namespace baitaplon.Controllers
         [HttpPost]
         public ActionResult suathongtin(sinhvien model)
         {
-            var update = db.sinhvien.Find(model.MaSV);
+            if (ModelState.IsValid)
+            {
+                var update = db.sinhvien.Find(model.MaSV);
 
                 update.TenSV = model.TenSV;
-            update.MatKhau = model.MatKhau;
-            update.GioiTinh = model.GioiTinh;
-            update.SDT = model.SDT;
-            update.NgaySinh = model.NgaySinh;
-            update.MaLop = model.MaLop;
+                update.MatKhau = model.MatKhau;
+                update.GioiTinh = model.GioiTinh;
+                update.SDT = model.SDT;
+                update.NgaySinh = model.NgaySinh;
+                update.MaLop = model.MaLop;
 
-            var masv = db.SaveChanges();
-            if (masv > 0)
-            {
-                return RedirectToAction("loginsv");
+                var masv = db.SaveChanges();
+                if (masv > 0)
+                {
+                    return RedirectToAction("loginsv");
+                }
+                else
+                {
+                    return View(model);
+                }
             }
-            else
-            {
-                return View(model);
-            }
+            return View(model);
         }
         public ActionResult logout()
         {
@@ -92,7 +102,6 @@ namespace baitaplon.Controllers
             {
                 return HttpNotFound();
             }
-
             var diemthi = db.diemthi.Where(d => d.MaSV == MaSV).ToList();
             ViewBag.SinhVien = sinhvien;  
             return View(sinhvien);

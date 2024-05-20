@@ -18,21 +18,30 @@ namespace baitaplon.Controllers
         }
 
         [HttpPost]
-        public ActionResult logingv(int MaGV, string MatKhau)
+public ActionResult logingv(int MaGV, string MatKhau)
+{
+    if (ModelState.IsValid)
+    {
+        var acc = db.giangvien.SingleOrDefault(x => x.MaGV == MaGV && x.MatKhau == MatKhau);
+        if (acc != null)
         {
-            var acc = db.giangvien.SingleOrDefault(x => x.MaGV == MaGV && x.MatKhau == MatKhau);
-            if (acc != null)
-            {
-                Session["user"] = acc;
-                Session["magv"] = acc.MaGV;
-                Session["name"] = acc.TenGV.ToString();
-                return RedirectToAction("trangchu", "giangvien");
-            }
-            else
-            {
-                return View();
-            }
+            Session["user"] = acc;
+            Session["magv"] = acc.MaGV;
+            Session["name"] = acc.TenGV.ToString();
+            return RedirectToAction("trangchu", "giangvien");
         }
+        else
+        {
+            ModelState.AddModelError("", "Thông tin đăng nhập không đúng.");
+            return View();
+        }
+    }
+    else
+    {
+        return View();
+    }
+}
+    
 
         public ActionResult trangchu()
         {
@@ -60,19 +69,24 @@ namespace baitaplon.Controllers
         [HttpPost]
         public ActionResult suathongtin(giangvien model)
         {
-            var update = db.giangvien.Find(model.MaGV);
-            if (update != null)
+            if (ModelState.IsValid)
             {
-                update.TenGV = model.TenGV;
-                update.MatKhau = model.MatKhau;
-                update.GioiTinh = model.GioiTinh;
-                update.SDT = model.SDT;
-                update.NgaySinh = model.NgaySinh;
-                update.MaKhoa = model.MaKhoa;
-                db.SaveChanges();
+                var update = db.giangvien.Find(model.MaGV);
+                if (update != null)
+                {
+                    update.TenGV = model.TenGV;
+                    update.MatKhau = model.MatKhau;
+                    update.GioiTinh = model.GioiTinh;
+                    update.SDT = model.SDT;
+                    update.NgaySinh = model.NgaySinh;
+                    update.MaKhoa = model.MaKhoa;
+                    db.SaveChanges();
+                }
+                return RedirectToAction("logingv");
             }
-            return RedirectToAction("logingv");
+            return View(model);
         }
+
 
         public ActionResult logout()
         {
