@@ -1,0 +1,69 @@
+﻿@model IEnumerable<baitaplon.Models.sinhvien>
+
+@{
+    ViewBag.Title = "Danh sách sinh viên";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Thêm mới", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            <label>Mã sinh viên</label>
+        </th>
+        <th>
+            <label>Tên sinh viên</label>
+        </th>
+        <th>
+            <label>Mật khẩu</label>
+        </th>
+        <th>
+            <label>Giới tính</label>
+        </th>
+        <th>
+            <label>Số điện thoại</label>
+        </th>
+        <th>
+            <label>Ngày sinh</label>
+        </th>
+        <th>
+            <label>Tên lớp</label>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaSV)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenSV)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MatKhau)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GioiTinh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SDT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgaySinh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lop.TenLop)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { MaSV = item.MaSV }) |
+                <a href="#" onclick="if (confirm('Bạn có chắc chắn muốn xóa sinh viên này không?')) { location.href='@Url.Action("Delete", "SinhVienmanage", new { MaSV = item.MaSV })'; } return false;">Xóa</a>
+            </td>
+        </tr>
+    }
+</table>
