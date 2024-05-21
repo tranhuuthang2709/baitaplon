@@ -1,0 +1,76 @@
+﻿@model IEnumerable<baitaplon.Models.giangvien>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    table, th, td {
+        border: 1px solid black;
+    }
+
+    table {
+        border-collapse: collapse;
+    }
+</style>
+<p>
+    @Html.ActionLink("Thêm mới", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            <label>Mã giảng viên</label>
+        </th>
+        <th>
+            <label>Tên giảng viên</label>
+        </th>
+        <th>
+            <label>Mật khẩu</label>
+        </th>
+        <th>
+            <label>Giới tính</label>
+        </th>
+        <th>
+            <label>Số điện thoại</label>
+        </th>
+        <th>
+            <label>Ngày sinh</label>
+        </th>
+        <th>
+            <label>Tên Khoa</label>
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.MaGV)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TenGV)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.MatKhau)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.GioiTinh)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NgaySinh)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SDT)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.khoa.TenKhoa)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { MaGV = item.MaGV }) |
+        <a href="#" onclick="if (confirm('Bạn có chắc chắn muốn xóa giảng viên này không?')) { location.href='@Url.Action("Delete", "GiangVienmanage", new { MaGV = item.MaGV })'; } return false;">Xóa</a>
+    </td>
+</tr>
+}
+
+</table>

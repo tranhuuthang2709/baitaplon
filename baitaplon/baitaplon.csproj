@@ -129,6 +129,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\GiangVienmanageController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomemanageController.cs" />
     <Compile Include="Areas\Admin\Controllers\SinhVienmanageController.cs" />
     <Compile Include="Controllers\GiangvienController.cs" />
@@ -218,6 +219,9 @@
     <Content Include="Areas\Admin\Views\SinhVienmanage\Create.cshtml" />
     <Content Include="Areas\Admin\Views\SinhVienmanage\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Homemanage\loginadmin.cshtml" />
+    <Content Include="Areas\Admin\Views\GiangVienmanage\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\GiangVienmanage\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\GiangVienmanage\Edit.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

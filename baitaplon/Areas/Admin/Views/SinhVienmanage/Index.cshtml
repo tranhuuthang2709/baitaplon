@@ -5,8 +5,15 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<style>
+    table, th, td {
+        border: 1px solid black;
+    }
 
+    table {
+        border-collapse: collapse;
+    }
+</style>
 <p>
     @Html.ActionLink("Thêm mới", "Create")
 </p>
