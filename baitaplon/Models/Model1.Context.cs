@@ -9,6 +9,7 @@
 
 namespace baitaplon.Models
 {
+    using global::baitaplon.Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
@@ -31,5 +32,6 @@ namespace baitaplon.Models
         public virtual DbSet<lop> lop { get; set; }
         public virtual DbSet<nganh> nganh { get; set; }
         public virtual DbSet<sinhvien> sinhvien { get; set; }
+        public virtual DbSet<Admins> Admins { get; set; }
     }
 }

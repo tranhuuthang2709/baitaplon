@@ -128,11 +128,17 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomemanageController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SinhVienmanageController.cs" />
     <Compile Include="Controllers\GiangvienController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SinhvienController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Admins.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\diemthi.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -170,6 +176,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\theme\assets\demo\chart-area-demo.js" />
+    <Content Include="Areas\Admin\theme\assets\demo\chart-bar-demo.js" />
+    <Content Include="Areas\Admin\theme\assets\demo\chart-pie-demo.js" />
+    <Content Include="Areas\Admin\theme\assets\demo\datatables-demo.js" />
+    <Content Include="Areas\Admin\theme\assets\img\error-404-monochrome.svg" />
+    <Content Include="Areas\Admin\theme\css\styles.css" />
+    <Content Include="Areas\Admin\theme\js\datatables-simple-demo.js" />
+    <Content Include="Areas\Admin\theme\js\scripts.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -197,6 +211,13 @@
     <Content Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Homemanage\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\SinhVienmanage\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\SinhVienmanage\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\SinhVienmanage\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Homemanage\loginadmin.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -251,6 +272,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
