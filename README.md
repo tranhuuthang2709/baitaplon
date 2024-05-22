@@ -6,7 +6,7 @@ b5:Tìm và thay đổi chuỗi kết nối trong phần <connectionStrings>
 b6: chạy dự án
 
 #các tính năng
-admin
+#admin
     -đăng nhập
     -quản lý sinh viên
       + chức năng tìm kiếm, lọc theo điều kiện
@@ -23,13 +23,13 @@ admin
        + thêm lớp 
       + sửa  lớp
       + xóa lớp 
-sinh viên:
+#sinh viên:
   - đăng nhập
   - xem thông tin
   - sửa thông tin
   - thêm ảnh của sinh viên, thẻ SV, CCCD
   - xem điểm
-giang viên
+#giang viên
   - đăng nhập
   - xem thông tin
   - sửa thông tin
