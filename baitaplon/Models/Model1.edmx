@@ -17,9 +17,9 @@
           <Key>
             <PropertyRef Name="MaMH" />
           </Key>
-          <Property Name="MaMH" Type="int" Nullable="false" />
-          <Property Name="DiemThi" Type="float" Nullable="false" />
-          <Property Name="Monhoc" Type="nvarchar" MaxLength="50" />
+          <Property Name="MaMH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DiemThi" Type="float" />
+          <Property Name="Monhoc" Type="nvarchar" MaxLength="255" />
           <Property Name="MaSV" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="giangvien">
@@ -68,6 +68,9 @@
           <Property Name="SDT" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="NgaySinh" Type="date" Nullable="false" />
           <Property Name="MaLop" Type="int" />
+          <Property Name="AnhSV" Type="nvarchar(max)" />
+          <Property Name="AnhTheSV" Type="nvarchar(max)" />
+          <Property Name="AnhCCCD" Type="nvarchar(max)" />
         </EntityType>
         <Association Name="FK_DiemThi_SinhVien">
           <End Role="sinhvien" Type="Self.sinhvien" Multiplicity="1" />
@@ -167,8 +170,8 @@
             <PropertyRef Name="MaMH" />
           </Key>
           <Property Name="MaMH" Type="Int32" Nullable="false" />
-          <Property Name="DiemThi1" Type="Double" Nullable="false" />
-          <Property Name="Monhoc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DiemThi1" Type="Double" />
+          <Property Name="Monhoc" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="MaSV" Type="Int32" Nullable="false" />
           <NavigationProperty Name="sinhvien" Relationship="Self.FK_DiemThi_SinhVien" FromRole="diemthi" ToRole="sinhvien" />
         </EntityType>
@@ -227,6 +230,9 @@
           <Property Name="MaLop" Type="Int32" />
           <NavigationProperty Name="diemthi" Relationship="Self.FK_DiemThi_SinhVien" FromRole="sinhvien" ToRole="diemthi" />
           <NavigationProperty Name="lop" Relationship="Self.FK_SinhVien_Lop" FromRole="sinhvien" ToRole="lop" />
+          <Property Name="AnhSV" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AnhTheSV" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AnhCCCD" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_DiemThi_SinhVien">
           <End Role="sinhvien" Type="Self.sinhvien" Multiplicity="1" />
@@ -383,6 +389,9 @@
           <EntitySetMapping Name="sinhvien">
             <EntityTypeMapping TypeName="QLSVModel.sinhvien">
               <MappingFragment StoreEntitySet="sinhvien">
+                <ScalarProperty Name="AnhCCCD" ColumnName="AnhCCCD" />
+                <ScalarProperty Name="AnhTheSV" ColumnName="AnhTheSV" />
+                <ScalarProperty Name="AnhSV" ColumnName="AnhSV" />
                 <ScalarProperty Name="MaSV" ColumnName="MaSV" />
                 <ScalarProperty Name="TenSV" ColumnName="TenSV" />
                 <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />

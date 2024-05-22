@@ -9,7 +9,6 @@
 
 namespace baitaplon.Models
 {
-    using global::baitaplon.Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
