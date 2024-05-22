@@ -1,0 +1,85 @@
+﻿@model IEnumerable<baitaplon.Models.sinhvien>
+
+@{
+    ViewBag.Title = "Danh sách sinh viên";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    table, th, td {
+        border: 1px solid black;
+    }
+
+    table {
+        border-collapse: collapse;
+    }
+</style>
+<p>
+    @Html.ActionLink("Thêm mới", "Create")
+</p>
+@using (Html.BeginForm("Index", "SinhVienmanage", FormMethod.Get))
+{
+    <p>
+        Tìm kiếm theo tên sinh viên: @Html.TextBox("searchString", ViewBag.CurrentFilter as string)
+        Lọc theo lớp:
+        @Html.DropDownList("MaLop", (SelectList)ViewBag.MaLop, "Tất cả")
+        <input type="submit" value="Tìm kiếm" class="btn btn-default" />
+    </p>
+}
+<table class="table">
+    <tr>
+        <th>
+            <label>Mã sinh viên</label>
+        </th>
+        <th>
+            <label>Tên sinh viên</label>
+        </th>
+        <th>
+            <label>Mật khẩu</label>
+        </th>
+        <th>
+            <label>Giới tính</label>
+        </th>
+        <th>
+            <label>Số điện thoại</label>
+        </th>
+        <th>
+            <label>Ngày sinh</label>
+        </th>
+        <th>
+            <label>Tên lớp</label>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaSV)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenSV)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MatKhau)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GioiTinh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SDT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgaySinh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lop.TenLop)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { MaSV = item.MaSV }) |
+                <a href="#" onclick="if (confirm('Bạn có chắc chắn muốn xóa sinh viên này không?')) { location.href='@Url.Action("Delete", "SinhVienmanage", new { MaSV = item.MaSV })'; } return false;">Xóa</a>
+            </td>
+        </tr>
+    }
+</table>

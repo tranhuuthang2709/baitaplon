@@ -1,0 +1,54 @@
+﻿@model baitaplon.Models.lop
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>Lớp</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.MaLop)
+
+    <div class="form-group">
+        <label>Tên Lớp</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.TenLop, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.TenLop, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Ngành</label>
+        <div class="col-md-10">
+            @{
+                baitaplon.Models.QLSVEntities db = new baitaplon.Models.QLSVEntities();
+                var nganhs = db.nganh.ToList();
+                <select name="MaLop">
+                    @foreach (var item in nganhs)
+                    {
+                        <option value="@item.Manganh">@item.Tennganh</option>
+                    }
+                </select>
+            }
+
+            @Html.ValidationMessageFor(model => model.MaLop, "", new { @class = "text-danger" })
+        </div>
+    </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
