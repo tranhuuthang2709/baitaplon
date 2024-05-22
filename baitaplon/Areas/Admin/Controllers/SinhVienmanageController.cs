@@ -12,10 +12,23 @@ namespace baitaplon.Areas.Admin.Controllers
         // GET: Admin/SinhVien
 
         QLSVEntities db = new QLSVEntities();
-        public ActionResult Index()
+        public ActionResult Index(string searchString, int? MaLop)
         {
-            var listsinhvien = db.sinhvien.ToList();
-            return View(listsinhvien);
+            var sv = from s in db.sinhvien
+                       select s;
+            // lấy sv có tên chứa chuỗi tìm kiếm.
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                sv = sv.Where(l => l.TenSV.Contains(searchString));
+            }
+            //lấy các sinh viên thuộc lớp có mã lớp tương ứng.
+            if (MaLop.HasValue)
+            {
+                sv = sv.Where(s => s.MaLop == MaLop.Value);
+            }
+
+            ViewBag.MaLop = new SelectList(db.lop, "MaLop", "TenLop");
+            return View(sv.ToList());
         }
         [HttpGet]
         public ActionResult Create()

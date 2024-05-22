@@ -17,6 +17,15 @@
 <p>
     @Html.ActionLink("Thêm mới", "Create")
 </p>
+@using (Html.BeginForm("Index", "SinhVienmanage", FormMethod.Get))
+{
+    <p>
+        Tìm kiếm theo tên sinh viên: @Html.TextBox("searchString", ViewBag.CurrentFilter as string)
+        Lọc theo lớp:
+        @Html.DropDownList("MaLop", (SelectList)ViewBag.MaLop, "Tất cả")
+        <input type="submit" value="Tìm kiếm" class="btn btn-default" />
+    </p>
+}
 <table class="table">
     <tr>
         <th>

@@ -131,6 +131,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\GiangVienmanageController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomemanageController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LopmanageController.cs" />
     <Compile Include="Areas\Admin\Controllers\SinhVienmanageController.cs" />
     <Compile Include="Controllers\GiangvienController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -222,6 +223,10 @@
     <Content Include="Areas\Admin\Views\GiangVienmanage\Index.cshtml" />
     <Content Include="Areas\Admin\Views\GiangVienmanage\Create.cshtml" />
     <Content Include="Areas\Admin\Views\GiangVienmanage\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Lopmanage\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Lopmanage\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Lopmanage\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Lopmanage\Details.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

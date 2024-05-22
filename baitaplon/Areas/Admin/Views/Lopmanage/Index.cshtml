@@ -1,0 +1,56 @@
+﻿@model IEnumerable<baitaplon.Models.lop>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@using (Html.BeginForm("Index", "Lopmanage", FormMethod.Get))
+{
+    <p>
+        Tìm kiếm theo tên lớp: @Html.TextBox("searchString", ViewBag.CurrentFilter as string)
+        Lọc theo ngành:
+        @Html.DropDownList("maNganh", (SelectList)ViewBag.MaNganh, "Tất cả")
+        <input type="submit" value="Tìm kiếm" class="btn btn-default" />
+    </p>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            <label>Mã lớp</label>
+        </th>
+        <th>
+            <label>Tên lớp</label>
+        </th>
+        <th>
+            <label>Ngành</label>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaLop)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenLop)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nganh.Tennganh)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { MaLop = item.MaLop }) |
+                <a href="#" onclick="if (confirm('Bạn có chắc chắn muốn xóa lớp này không?')) { location.href='@Url.Action("Delete", "Lopmanage", new { MaLop = item.MaLop })'; } return false;">Xóa</a>|
+                @Html.ActionLink("Danh sách sinh viên", "Details", new { MaLop = item.MaLop })
+            </td>
+        </tr>
+    }
+
+</table>

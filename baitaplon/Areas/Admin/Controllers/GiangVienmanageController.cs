@@ -11,10 +11,23 @@ namespace baitaplon.Areas.Admin.Controllers
     {
 
         QLSVEntities db = new QLSVEntities();
-        public ActionResult Index()
+        public ActionResult Index(string searchString, int? MaKhoa)
         {
-            var listgiangvien = db.giangvien.ToList();
-            return View(listgiangvien);
+            var gv = from s in db.giangvien
+                     select s;
+            // lấy sv có tên chứa chuỗi tìm kiếm.
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                gv = gv.Where(l => l.TenGV.Contains(searchString));
+            }
+            //lấy các sinh viên thuộc lớp có mã lớp tương ứng.
+            if (MaKhoa.HasValue)
+            {
+                gv = gv.Where(s => s.MaKhoa == MaKhoa.Value);
+            }
+
+            ViewBag.MaKhoa = new SelectList(db.khoa, "MaKhoa", "TenKhoa");
+            return View(gv.ToList());
         }
         [HttpGet]
         public ActionResult Create()
