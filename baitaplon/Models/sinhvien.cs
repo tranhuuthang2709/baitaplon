@@ -10,7 +10,9 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.RegularExpressions;
+using System.Web;
 
 namespace baitaplon.Models
 {
@@ -52,6 +54,15 @@ namespace baitaplon.Models
         public virtual ICollection<diemthi> diemthi { get; set; }
         public virtual lop lop { get; set; }
 
+
+        [NotMapped]
+        public HttpPostedFileBase imageAnhSV { get; set; }
+
+        [NotMapped]
+        public HttpPostedFileBase imageAnhTheSV { get; set; }
+
+        [NotMapped]
+        public HttpPostedFileBase imageAnhCCCD { get; set; }
         public static ValidationResult ValidateNgaySinh(DateTime ngaySinh, ValidationContext context)
         {
             var isValid = Regex.IsMatch(ngaySinh.ToString("dd/MM/yyyy"), @"^\d{2}/\d{2}/\d{4}$");

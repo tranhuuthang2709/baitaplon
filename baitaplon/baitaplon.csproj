@@ -278,10 +278,12 @@
     <Content Include="Views\Giangvien\listDiem.cshtml" />
     <Content Include="Views\Giangvien\EditDiem.cshtml" />
     <Content Include="Views\Sinhvien\xemdiem.cshtml" />
+    <Content Include="Views\Sinhvien\themanh.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Image\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

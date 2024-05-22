@@ -1,0 +1,52 @@
+﻿@model baitaplon.Models.sinhvien
+
+@{
+    ViewBag.Title = "Thêm Ảnh";
+    Layout = "~/Views/Shared/_Layoutsv.cshtml";
+}
+
+<h2 class="text-center">Thêm Ảnh</h2>
+
+@using (Html.BeginForm("themanh", "Sinhvien", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4 class="text-center">Thêm ảnh cho sinh viên</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        @Html.HiddenFor(model => model.MaSV)
+
+        <div class="form-group">
+            @Html.Label("Ảnh Sinh viên", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="imageAnhSV" class="form-control-file" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Ảnh Thẻ Sinh viên", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="imageAnhTheSV" class="form-control-file" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Ảnh CCCD", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="imageCCCD" class="form-control-file" />
+            </div>
+        </div>
+
+        <div class="form-group text-center">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Thêm Ảnh" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+<div class="text-center">
+    @Html.ActionLink("Quay lại", "xemthongtin", new { MaSV = ViewBag.MaSV }, new { @class = "btn btn-secondary" })
+</div>

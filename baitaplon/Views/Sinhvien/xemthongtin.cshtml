@@ -1,76 +1,101 @@
 ﻿@model baitaplon.Models.sinhvien
 
 @{
-    ViewBag.Title = "xemthongtin";
+    ViewBag.Title = "Thông tin cá nhân";
     Layout = "~/Views/Shared/_Layoutsv.cshtml";
 }
 
-<h2>Thông tin cá nhân</h2>
+<h2 class="text-center">Thông tin cá nhân</h2>
 
-<div>
-    <h4>sinh viên</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            <label>Mã sinh viên</label>
-        </dt>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 class="panel-title">Thông tin sinh viên</h4>
+    </div>
+    <div class="panel-body">
+        <dl class="dl-horizontal">
+            <dt><strong>Mã sinh viên:</strong></dt>
+            <dd>@Html.DisplayFor(model => model.MaSV)</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.MaSV)
-        </dd>
-        <dt>
-            <label>Tên sinh viên</label>
-        </dt>
+            <dt><strong>Tên sinh viên:</strong></dt>
+            <dd>@Html.DisplayFor(model => model.TenSV)</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.TenSV)
-        </dd>
+            <dt><strong>Mật khẩu:</strong></dt>
+            <dd>@Html.DisplayFor(model => model.MatKhau)</dd>
 
-        <dt>
-            <label>Mật khẩu</label>
-        </dt>
+            <dt><strong>Giới tính:</strong></dt>
+            <dd>@Html.DisplayFor(model => model.GioiTinh)</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.MatKhau)
-        </dd>
+            <dt><strong>Số điện thoại:</strong></dt>
+            <dd>@Html.DisplayFor(model => model.SDT)</dd>
 
-        <dt>
-            <label>Giới tính</label>
-        </dt>
+            <dt><strong>Ngày sinh:</strong></dt>
+            <dd>@Html.DisplayFor(model => model.NgaySinh)</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.GioiTinh)
-        </dd>
+            <dt><strong>Tên lớp:</strong></dt>
+            <dd>@Html.DisplayFor(model => model.lop.TenLop)</dd>
 
-        <dt>
-            <label>Số điện thoại</label>
-        </dt>
+            <dt><strong>Ảnh Sinh viên:</strong></dt>
+            <dd>
+                @if (!string.IsNullOrEmpty(Model.AnhSV))
+                {
+                    <img src="~/Images/@Model.AnhSV" alt="Ảnh Sinh viên" class="img-thumbnail" style="width: 200px; height: auto;" />
+                }
+                else
+                {
+                    <span>Chưa có ảnh</span>
+                }
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.SDT)
-        </dd>
+            <dt><strong>Ảnh Thẻ Sinh viên:</strong></dt>
+            <dd>
+                @if (!string.IsNullOrEmpty(Model.AnhTheSV))
+                {
+                    <img src="~/Images/@Model.AnhTheSV" alt="Ảnh Thẻ Sinh viên" class="img-thumbnail" style="width: 200px; height: auto;" />
+                }
+                else
+                {
+                    <span>Chưa có ảnh</span>
+                }
+            </dd>
 
-        <dt>
-            <label>Ngày sinh</label>
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NgaySinh)
-        </dd>
-
-        <dt>
-            <label>Tên lớp</label>
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.lop.TenLop)
-        </dd>
-       
-    </dl>
+            <dt><strong>Ảnh CCCD:</strong></dt>
+            <dd>
+                @if (!string.IsNullOrEmpty(Model.AnhCCCD))
+                {
+                    <img src="~/Images/@Model.AnhCCCD" alt="Ảnh CCCD" class="img-thumbnail" style="width: 200px; height: auto;" />
+                }
+                else
+                {
+                    <span>Chưa có ảnh</span>
+                }
+            </dd>
+        </dl>
+    </div>
+    <div class="panel-footer text-center">
+        <a href="/Sinhvien/suathongtin?MaSV=@ViewBag.MaSV" class="btn btn-primary">Sửa thông tin</a>
+        <a href="/Sinhvien/trangchu?MaSV=@ViewBag.MaSV" class="btn btn-default">Quay lại</a>
+    </div>
 </div>
-<p>
-    <a href="/Sinhvien/suathongtin?MaSV=@ViewBag.MaGV">Sửa thông tin</a>
 
-    <a href="/Sinhvien/trangchu?MaSV=@ViewBag.MaGV">Quay lại</a>
-    
-</p>
+<style>
+    .dl-horizontal dt {
+        width: 160px;
+    }
+
+    .dl-horizontal dd {
+        margin-left: 180px;
+    }
+
+    .panel-title {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .panel-footer {
+        background-color: #f5f5f5;
+    }
+
+    .btn {
+        margin-right: 10px;
+    }
+</style>
