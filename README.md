@@ -1,42 +1,42 @@
-Họ tên:Trần Hữu Thắng
-Mã sv:2050531200334
-lớp học phần:223LTC01
+Quản Lý Sinh Viên
+Họ tên: Trần Hữu Thắng
+Mã SV: 2050531200334
+Lớp học phần: 223LTC01
 
-#Các bước cài đặt 
-b1: tải dự án quản lý sinh viên về
-b2: mở file QLSV.sql run  và chèn dữ liệu mẫu vào
-b3: mở dự án quản lý sinh viên lên
-b5:Tìm và thay đổi chuỗi kết nối trong phần <connectionStrings>
-b6: chạy dự án
-
-#các tính năng
-#admin
-    -đăng nhập
-    -quản lý sinh viên
-      + chức năng tìm kiếm, lọc theo điều kiện
-      + thêm sinh viên
-      + sửa sinh viên
-      + xóa sinh viên
-    -quản lý giáo viên
-      + chức năng tìm kiếm, lọc theo điều kiện
-       + thêm giáo viên
-      + sửa giáo viên
-      + xóa xóa viên
-    -quản lý lớp
-        + chức năng tìm kiếm, lọc theo điều kiện
-       + thêm lớp 
-      + sửa  lớp
-      + xóa lớp 
-#sinh viên:
-  - đăng nhập
-  - xem thông tin
-  - sửa thông tin
-  - thêm ảnh của sinh viên, thẻ SV, CCCD
-  - xem điểm
-#giang viên
-  - đăng nhập
-  - xem thông tin
-  - sửa thông tin
-  - xem điểm sinh viên
-  - sửa điểm sinh viên
-  - xem danh sách sinh viên
+Các bước cài đặt
+Tải dự án quản lý sinh viên về
+Mở file QLSV.sql và chạy để chèn dữ liệu mẫu vào cơ sở dữ liệu.
+Mở dự án quản lý sinh viên.
+Tìm và thay đổi chuỗi kết nối trong phần <connectionStrings> của file cấu hình.
+Chạy dự án.
+Các tính năng
+Admin
+Đăng nhập
+Quản lý sinh viên
+Chức năng tìm kiếm, lọc theo điều kiện
+Thêm sinh viên
+Sửa sinh viên
+Xóa sinh viên
+Quản lý giáo viên
+Chức năng tìm kiếm, lọc theo điều kiện
+Thêm giáo viên
+Sửa giáo viên
+Xóa giáo viên
+Quản lý lớp
+Chức năng tìm kiếm, lọc theo điều kiện
+Thêm lớp
+Sửa lớp
+Xóa lớp
+Sinh viên
+Đăng nhập
+Xem thông tin
+Sửa thông tin
+Thêm ảnh của sinh viên, thẻ SV, CCCD
+Xem điểm
+Giảng viên
+Đăng nhập
+Xem thông tin
+Sửa thông tin
+Xem điểm sinh viên
+Sửa điểm sinh viên
+Xem danh sách sinh viên
