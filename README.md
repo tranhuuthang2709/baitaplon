@@ -53,5 +53,3 @@
 - **Xem Điểm Sinh Viên**
 - **Sửa Điểm Sinh Viên**
 - **Xem Danh Sách Sinh Viên**
-
-Để đảm bảo tính mỹ quan và sự thụt lề đẹp, việc sử dụng các tính năng và danh sách trên nên được in đậm và căn lề sao cho hợp lý.
