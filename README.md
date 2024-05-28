@@ -1,3 +1,7 @@
+Họ tên:Trần Hữu Thắng
+Mã sv:2050531200334
+lớp học phần:223LTC01
+
 #Các bước cài đặt 
 b1: tải dự án quản lý sinh viên về
 b2: mở file QLSV.sql run  và chèn dữ liệu mẫu vào
